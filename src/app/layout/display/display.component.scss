@@ -1,0 +1,19 @@
+.title {
+  color: #2f3857;
+  text-shadow: 1px 1px 0 #fff;
+}
+.container {
+  width: 100%;
+  min-height: 400px;
+  .preview {
+    border-radius: 8px;
+    background-color: #FFF;
+    border: 1px solid #E1E1E1;
+    position: relative;
+    padding: 15px;
+    .btn-wrap {
+      background-color: rgb(245, 245, 245);
+      min-height: 200px;
+    }
+  }
+}

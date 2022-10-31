@@ -1,0 +1,18 @@
+.main {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.display {
+  padding: 1rem;
+  background-color: #f2f3f7;
+  height: 90vh;
+
+}
