@@ -1,10 +1,30 @@
 .options-container {
   padding: 1rem;
-  .option-title {
-    border-radius: 6px;
-    background-color: #EEE;
-    border: 1px solid #DDD;
-    margin: 10px 0 15px;
-    padding: 5px 10px;
+  .option-card {
+    background-color: #f2f3f7;
+    border: 1px solid #dddddd;
+    padding: 0.6rem;
+    .option-title {
+      border-radius: 6px 6px 0 0;
+      background-color: #fff;
+      border: 1px solid #f2f2f4;
+      border-width: 1px 1px 0px 1px;
+      padding: 5px 10px;
+    }
+    .option-body {
+      display: flex;
+      justify-content: center;
+      padding: 0.6rem;
+      border-radius: 0 0 6px 6px;
+      background-color: #fff;
+      border: 1px solid #f2f2f4;
+      .group {
+        width: 50%;
+      }
+    }
+    .input {
+      margin-bottom: 0.6rem;
+    }
   }
+
 }
