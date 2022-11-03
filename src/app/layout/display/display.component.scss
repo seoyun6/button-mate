@@ -19,18 +19,35 @@
       align-items: center;
     }
     .btn-set {
+      display: flex;
+      justify-content: space-between;
       .colors {
-        width: 30%;
+        width: 38%;
         padding: 0.4em;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         .color {
           background-color: #2f3857;
           width: 30px;
           height: 30px;
         }
-
       }
     }
+    .check-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      .check-btn {
+        label {
+          font-size: 1rem;
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+  .code-btn {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
   }
 }

@@ -4,6 +4,10 @@
     background-color: #f2f3f7;
     border: 1px solid #dddddd;
     padding: 0.6rem;
+    margin-bottom: 1rem;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
     .option-title {
       border-radius: 6px 6px 0 0;
       background-color: #fff;
@@ -12,14 +16,16 @@
       padding: 5px 10px;
     }
     .option-body {
-      display: flex;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
       justify-content: center;
       padding: 0.6rem;
       border-radius: 0 0 6px 6px;
       background-color: #fff;
       border: 1px solid #f2f2f4;
       .group {
-        width: 50%;
+        width: 100%;
       }
     }
     .input {
