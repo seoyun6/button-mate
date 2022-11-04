@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-display',
@@ -10,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayComponent implements OnInit {
 
+  btnType: string = 'blue';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onChangeType(color: string) {
+    this.btnType = color;
   }
 
 }

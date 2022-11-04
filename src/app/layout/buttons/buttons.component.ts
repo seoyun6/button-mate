@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostBinding, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-buttons',
@@ -10,9 +10,13 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 })
 export class ButtonsComponent implements OnInit {
 
+  @Output() changeTypeEvent = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  onClick(color: string) {
+   this.changeTypeEvent.emit("color");
+  }
 }

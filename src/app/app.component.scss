@@ -5,9 +5,11 @@
 
 .buttons {
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   padding: 0 1rem;
+  max-height: 800px;
 }
 
 .display {
