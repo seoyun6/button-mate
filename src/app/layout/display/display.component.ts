@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ButtonService } from 'src/common/button.service';
 
 @Component({
   selector: 'app-display',
@@ -12,13 +13,12 @@ export class DisplayComponent implements OnInit {
 
   btnType: string = 'blue';
 
-  constructor() { }
+  constructor(private buttonService: ButtonService) { }
 
   ngOnInit(): void {
+    this.buttonService.changeTypeEvent.subscribe((color: string) => {
+      console.log('re : ', color)
+      this.btnType = color;
+    })
   }
-
-  onChangeType(color: string) {
-    this.btnType = color;
-  }
-
 }

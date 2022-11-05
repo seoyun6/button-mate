@@ -5,7 +5,6 @@
   type="button"
   class="btn"
   [ngClass]="[btnType, btnSize, btnRounded, btnShadow, cssClass]"
-  [disabled]="disabled"
-  (click)="onClick($event)">
+  [disabled]="disabled">
   <ng-content></ng-content>
 </button>
