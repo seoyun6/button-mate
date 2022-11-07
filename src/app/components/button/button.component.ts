@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { isNotEmpty } from 'src/common/utils/util';
 
 @Component({
@@ -9,7 +9,7 @@ import { isNotEmpty } from 'src/common/utils/util';
     '[class.ui-button]': 'true'
   },
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent implements OnInit , OnChanges {
 
   @Input() size: string = '';
   @Input() type: string = '';
@@ -34,27 +34,29 @@ export class ButtonComponent implements OnInit {
   fontStyle = '';
 
   constructor() { }
-
+ 
   ngOnInit(): void {
     if(isNotEmpty(this.size)) {
       this.btnSize = 'btn-' + this.size.toLocaleLowerCase();
-      console.log('=====')
-      console.log(this.size)
     }
     if(isNotEmpty(this.type)) {
       this.btnType = 'btn-' + this.type.toLocaleLowerCase();
-      console.log('=============')
-      console.log(this.type)
-      console.log(this.btnType)
     }
     if(this.rounded) {
       this.btnRounded = 'rounded-pill'
     }
   }
+
   onClick($event : any) {
     this.onclick.emit($event);
   }
   onChangeType($event: string) {
     this.btnType = $event;
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(this.btnType){
+      this.btnType ='btn-' + this.type.toLocaleLowerCase();
+    }
+  } 
 }

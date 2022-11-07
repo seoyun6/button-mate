@@ -7,10 +7,12 @@ export class ButtonService {
 
   @Output() changeTypeEvent = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+  ) { }
 
   onChangeType(color : string) {
     console.log('output : ', color);
     this.changeTypeEvent.emit(color);
   }
+
 }

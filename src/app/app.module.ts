@@ -24,6 +24,9 @@ import { MatSliderModule } from '@angular/material/slider';
     BrowserAnimationsModule,
     MatSliderModule,
   ],
+  exports: [
+    ButtonComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

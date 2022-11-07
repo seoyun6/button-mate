@@ -12,6 +12,7 @@ import { ButtonService } from 'src/common/button.service';
 export class DisplayComponent implements OnInit {
 
   btnType: string = 'blue';
+  styleTxt : string ='';
 
   constructor(private buttonService: ButtonService) { }
 
@@ -21,4 +22,30 @@ export class DisplayComponent implements OnInit {
       this.btnType = color;
     })
   }
+  onClickGetCode(){
+    if(this.btnType === 'green') {
+     let css = "" 
+    }
+    console.log('===================================')
+    console.log(this.btnType)
+    this.btnType
+    const element = document.getElementById('test');
+    console.log('===================')
+    // console.log(getComputedStyle(element).getPropertyValue("color"))
+    
+    
+    // const btnStyle = getComputedStyle(element);
+    const result = this.getCssText(element);
+    console.log(result);
+    // this.styleTxt = btnStyle;
+  }
+
+  getCssText(elemen: any){
+    let teksStyle = "";
+    let compStyle = getComputedStyle(elemen);
+    for(let a = 0; a < compStyle.length; a++){
+        teksStyle += compStyle[a] + " : " + compStyle.getPropertyValue(compStyle[a]) + ";\n";
+    }
+    return teksStyle;
+}
 }
