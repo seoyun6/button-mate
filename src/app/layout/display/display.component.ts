@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { ButtonService } from 'src/common/button.service';
 
 @Component({
@@ -13,6 +13,8 @@ export class DisplayComponent implements OnInit {
 
   btnType: string = 'blue';
   styleTxt : string ='';
+
+  @ViewChild('test') ef: ElementRef | undefined
 
   constructor(private buttonService: ButtonService) { }
 
@@ -29,23 +31,27 @@ export class DisplayComponent implements OnInit {
     console.log('===================================')
     console.log(this.btnType)
     this.btnType
-    const element = document.getElementById('test');
+    getComputedStyle(document.documentElement).getPropertyValue('color')
+    // const element = document.getElementById('test');
     console.log('===================')
+    console.log('44444444', this.ef)
     // console.log(getComputedStyle(element).getPropertyValue("color"))
     
     
     // const btnStyle = getComputedStyle(element);
-    const result = this.getCssText(element);
-    console.log(result);
-    // this.styleTxt = btnStyle;
+    // const result = this.getCssText(element);
+    // console.log(result);
+    // this.styleTxt = result;
   }
 
   getCssText(elemen: any){
     let teksStyle = "";
-    let compStyle = getComputedStyle(elemen);
-    for(let a = 0; a < compStyle.length; a++){
-        teksStyle += compStyle[a] + " : " + compStyle.getPropertyValue(compStyle[a]) + ";\n";
-    }
-    return teksStyle;
-}
+    let compStyle = this.ef;
+    console.log('2222222222')
+    teksStyle = compStyle?.nativeElement; 
+    // for(let a = 0; a < compStyle.length; a++){
+    //     teksStyle += compStyle[a] + " : " + compStyle.getPropertyValue(compStyle[a]) + ";\n";
+    // }
+    // return teksStyle;
+  }
 }
