@@ -16,7 +16,10 @@ export class DisplayComponent implements OnInit {
 
   @ViewChild('test') ef: ElementRef | undefined
 
-  constructor(private buttonService: ButtonService) { }
+  constructor(
+    private buttonService: ButtonService,
+    private el: ElementRef
+    ) { }
 
   ngOnInit(): void {
     this.buttonService.changeTypeEvent.subscribe((color: string) => {
@@ -25,33 +28,36 @@ export class DisplayComponent implements OnInit {
     })
   }
   onClickGetCode(){
-    if(this.btnType === 'green') {
-     let css = "" 
-    }
-    console.log('===================================')
-    console.log(this.btnType)
     this.btnType
-    getComputedStyle(document.documentElement).getPropertyValue('color')
-    // const element = document.getElementById('test');
-    console.log('===================')
-    console.log('44444444', this.ef)
-    // console.log(getComputedStyle(element).getPropertyValue("color"))
-    
-    
-    // const btnStyle = getComputedStyle(element);
-    // const result = this.getCssText(element);
-    // console.log(result);
-    // this.styleTxt = result;
+    getComputedStyle(document.documentElement).getPropertyValue('color');
+    const btn = document.getElementById('styleBtn');
+    const a = document.querySelector('.btn-blue');
+    if(a != null) {
+      console.log(a);
+    }
+    // { color: 값, font-size: 값 }
+    let result = '';
+    if(btn) {
+      result += 'color: ' + getComputedStyle(btn).getPropertyValue("color") + '\n';
+      result += 'font-size: ' + getComputedStyle(btn).getPropertyValue("font-size") + '\n';
+      result += 'border: ' + getComputedStyle(btn).getPropertyValue("border") + '\n';
+      result += 'background: ' + getComputedStyle(btn).getPropertyValue("background") + '\n';
+      result += 'text-shadow: ' + getComputedStyle(btn).getPropertyValue("text-shadow") + '\n';
+    }
+    console.log(result);
   }
 
-  getCssText(elemen: any){
+  getCssText(element: any){
     let teksStyle = "";
-    let compStyle = this.ef;
+    let compStyle = element;
     console.log('2222222222')
     teksStyle = compStyle?.nativeElement; 
-    // for(let a = 0; a < compStyle.length; a++){
-    //     teksStyle += compStyle[a] + " : " + compStyle.getPropertyValue(compStyle[a]) + ";\n";
-    // }
-    // return teksStyle;
+    for(let a = 0; a < compStyle.length; a++){
+        teksStyle += compStyle[a] + " : " + compStyle.getPropertyValue(compStyle[a]) + ";\n";
+    }
+    return teksStyle;
+  }
+  handleColorChange(color : any) {
+    (this.el.nativeElement as HTMLElement).style.setProperty('--main-color', color);
   }
 }

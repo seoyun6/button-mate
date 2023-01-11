@@ -2,11 +2,11 @@
 <div class="container">
   <div class="preview">
     <div class="btn-wrap">
-      <ui-button #test [size]="'lg'" [type]="btnType">Button</ui-button>
+      <ui-button [size]="'lg'" [type]="btnType">Button</ui-button>
     </div>
     <div class="btn-set">
       <div class="colors">
-        <div class="color"></div>
+        <div class="color"><input type="color" (change)="handleColorChange($event)"></div>
         <div class="color"></div>
         <div class="color"></div>
         <div class="color"></div>
@@ -19,7 +19,7 @@
         <div class="check-btn">
           <input type="checkbox"><label>gradient</label>
         </div>
-        <button>초기화</button>
+        <ui-button [size]="'md'" [type]="'blue'">초기화</ui-button>
       </div>
     </div>
   </div>
